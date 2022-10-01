@@ -1,0 +1,36 @@
+{
+      "Auth": {
+            "welcome_again": "مرحبا بك مرة أخرى",
+            "You_can_log_in_now": "يمكنك تسجيل الدخول الأن",
+            "Mobile_number": "رقم الجوال",
+            "password": "كلمة المرور",
+            "Forgot_your_password": "نسيت كلمة المرور ؟",
+            "sign_in": "تسجيل الدخول",
+            "You_dont_have_an_account": "ليس لديك حساب ؟",
+            "Register_now": "تسجيل الأن",
+            "Registration": "تسجيل",
+            "City": "المدينة",
+            "Already_have_an_account": "لديك حساب بالفعل ؟",
+            "You_can_register_a_new_account_now": "يمكنك تسجيل حساب جديد الأن",
+            "user_name": "اسم المستخدم",
+            "Confirm_mobile_number": "تأكيد رقم الجوال",
+            "Enter_the_component_code": "أدخل الكود المكون من 4 أرقام المرسل علي رقم الجوال",
+            "Confirm_the_code": "تأكيد الكود",
+            "Did_you_not_receive_the_code": "لم تستلم الكود ؟",
+            "You_can_resend_code_after": "يمكنك إعادة إرسال الكود بعد",
+            "Re_transmitter": "إعادة الإرسال",
+            "validator": {
+                  "write_the_phone": "يجب كتابة رقم الهاتف",
+                  "No_password_was_typed": "لم يتم كتابة كلمة مرور",
+                  "write_the_name": "يجب كتابة الاسم",
+                  "enter_the_code": "من فضلك أدخل الكود"
+            }
+      },
+      "label": {
+            "home": "الرئيسية",
+            "My_requests": "طلباتي",
+            "Notifications": "الإشعارات",
+            "Favorite": "المفضلة",
+            "account": "حسابي"
+      }
+}
