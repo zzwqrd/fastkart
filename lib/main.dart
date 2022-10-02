@@ -48,7 +48,6 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             // primarySwatch: Colors.blue,
             backgroundColor: Colors.white,
-
             fontFamily: 'TajawalBold',
             appBarTheme:const AppBarTheme(
               backgroundColor: Colors.white,
