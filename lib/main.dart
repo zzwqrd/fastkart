@@ -9,10 +9,9 @@ import 'screens/splash_screen/view.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   initKiwi();
-  await ScreenUtil.ensureScreenSize();
+  // await ScreenUtil.ensureScreenSize();
   await EasyLocalization.ensureInitialized();
   runApp(
-    // دي كدا استدعاء اللغه
     EasyLocalization(
       path: 'assets/lang',
       saveLocale: true,
@@ -28,7 +27,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +47,7 @@ class MyApp extends StatelessWidget {
             // primarySwatch: Colors.blue,
             backgroundColor: Colors.white,
             fontFamily: 'TajawalBold',
-            appBarTheme:const AppBarTheme(
+            appBarTheme: const AppBarTheme(
               backgroundColor: Colors.white,
               elevation: 0,
               toolbarHeight: 75,
@@ -74,5 +72,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
