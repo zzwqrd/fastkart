@@ -1,4 +1,4 @@
-import 'package:fastkart_app/helper/app_theme.dart';
+import 'package:fastkart_app/screens/home_screen/widget/custom_app.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,29 +6,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset(
-              'assets/icons/logo.png',
-              width: 80,
-              fit: BoxFit.fill,
-            ),
-            const Spacer(),
-            Row(
-              children: const [
-                Text(
-                  "data",
-                  style: TextStyle(color: Colors.black),
-                ),
-                Text(
-                  "data",
-                  style: TextStyle(color: Colors.black),
-                ),
-              ],
-            ),
-          ],
-        ),
+        title: appCustom(),
         leading: IconButton(
           onPressed: () {},
           icon: Image.asset(
