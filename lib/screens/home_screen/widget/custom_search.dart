@@ -22,6 +22,10 @@ Widget widgetSearch() {
               color: Colors.black,
             ),
           ),
+          Text(
+            "Search here...",
+            style: AppTheme.textStyleGray,
+          ),
           const Spacer(),
           IconButton(
             onPressed: () {},

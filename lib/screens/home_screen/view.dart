@@ -1,3 +1,4 @@
+import 'package:fastkart_app/screens/home_screen/widget/customSlider.dart';
 import 'package:fastkart_app/screens/home_screen/widget/custom_app.dart';
 import 'package:fastkart_app/screens/home_screen/widget/custom_search.dart';
 import 'package:flutter/material.dart';
@@ -30,43 +31,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            SizedBox(
-              height: 200.h,
-              child: Swiper(
-                itemBuilder: (BuildContext context, index) {
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      'https://themes.pixelstrap.com/fastkart-app/assets/images/banner/home1.jpg',
-                      fit: BoxFit.cover,
-                      width: MediaQuery.of(context).size.width.w,
-                      height: MediaQuery.of(context).size.height.h,
-                    ),
-                  );
-                },
-                autoplay: true,
-                layout: SwiperLayout.TINDER,
-                itemCount: 5,
-                viewportFraction: 1.0,
-                scrollDirection: Axis.horizontal,
-                indicatorLayout: PageIndicatorLayout.SCALE,
-                autoplayDelay: 1000,
-                // control: const SwiperControl(size: 20),
-                // fade: 2.0,
-                // viewportFraction: 0.85,
-
-                pagination: SwiperPagination(
-                  alignment: Alignment.bottomCenter,
-                  builder: DotSwiperPaginationBuilder(
-                    color: Colors.white.withOpacity(0.5),
-                    activeColor: Colors.white,
-                  ),
-                  // margin: const EdgeInsets.only(
-                  //   top: 90,
-                  // ),
-                ),
-              ),
-            ),
+            customSlider(),
           ],
         ),
       ),
