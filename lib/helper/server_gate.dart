@@ -6,7 +6,7 @@ import 'package:easy_localization/easy_localization.dart' as lang;
 import 'dart:developer';
 
 // ignore: constant_identifier_names
-const String BASE_URL = "https://thimar.amr.aait-d.com/api";
+const String BASE_URL = "";
 
 class ServerGate {
   Dio dio = Dio();
