@@ -1,11 +1,9 @@
 import 'package:fastkart_app/screens/home_screen/widget/customSlider.dart';
 import 'package:fastkart_app/screens/home_screen/widget/custom_app.dart';
+import 'package:fastkart_app/screens/home_screen/widget/custom_recently.dart';
 import 'package:fastkart_app/screens/home_screen/widget/custom_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screen_scaling/flutter_screen_scaling.dart';
-import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
-
-import '../../helper/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -32,6 +30,13 @@ class HomeScreen extends StatelessWidget {
               height: 20.h,
             ),
             customSlider(),
+            SizedBox(
+              height: 20.h,
+            ),
+            custom_recently(),
+            SizedBox(
+              height: 20.h,
+            ),
           ],
         ),
       ),

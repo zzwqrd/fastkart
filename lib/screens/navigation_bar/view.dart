@@ -44,10 +44,17 @@ class _NavigationBarViewState extends State<NavigationBarView> {
         showUnselectedLabels: true,
         showSelectedLabels: true,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: AppTheme.mainColor,
-        selectedLabelStyle: TextStyle(
-          color: AppTheme.mainColor,
-          fontSize: 14,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
+        unselectedLabelStyle: const TextStyle(
+          color: Colors.white,
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+        ),
+        selectedLabelStyle: const TextStyle(
+          color: Colors.white,
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
         ),
         elevation: 20.0,
         backgroundColor: AppTheme.mainColor,
@@ -73,7 +80,7 @@ class _NavigationBarViewState extends State<NavigationBarView> {
               'assets/icons/bg-pattern2.png',
               width: 20,
             ),
-            label: 'Chat',
+            label: 'Category',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -84,7 +91,7 @@ class _NavigationBarViewState extends State<NavigationBarView> {
               'assets/icons/bg-pattern2.png',
               width: 20,
             ),
-            label: 'Doctors',
+            label: 'Search',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -95,7 +102,7 @@ class _NavigationBarViewState extends State<NavigationBarView> {
               'assets/icons/bg-pattern2.png',
               width: 20,
             ),
-            label: 'Appointments',
+            label: 'Offers',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -106,7 +113,7 @@ class _NavigationBarViewState extends State<NavigationBarView> {
               'assets/icons/bg-pattern2.png',
               width: 20,
             ),
-            label: 'MENU',
+            label: 'Cart',
           ),
         ],
         // onTap: (index) {

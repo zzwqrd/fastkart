@@ -34,6 +34,7 @@ dependencies:
   flutter_gen: ^5.0.1
   flutter_swiper_null_safety: ^1.0.2
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
