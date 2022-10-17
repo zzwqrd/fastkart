@@ -15,12 +15,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final fullNameController = TextEditingController();
-
-  final emailController = TextEditingController();
-
-  final passController = TextEditingController();
-
   final RegisterEventStart _event = RegisterEventStart();
 
   final bloc = KiwiContainer().resolve<CityBloc>()..add(CityEventStart());
