@@ -8,7 +8,6 @@ class CityBloc extends Bloc<CityEvents, CityStates> {
   CityBloc() : super(CityStates()) {
     on<CityEventStart>(_getCityData);
   }
-
   ServerGate serverGate = ServerGate();
 
   void _getCityData(

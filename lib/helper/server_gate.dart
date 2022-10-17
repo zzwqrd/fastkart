@@ -7,6 +7,7 @@ import 'dart:developer';
 
 // ignore: constant_identifier_names
 const String BASE_URL = "http://127.0.0.1:8000/api";
+// const String BASE_URL = "http://localhost/wasly/public/api";
 
 class ServerGate {
   Dio dio = Dio();
@@ -24,7 +25,7 @@ class ServerGate {
       // "Accept-Language": CacheHelper.getLang(),
       "Accept": "application/json",
       "content-type": "application/json",
-      "lang": "ar",
+      // "lang": "ar",
     };
   }
 
