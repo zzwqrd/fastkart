@@ -1,9 +1,15 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fastkart_app/gen_bloc/cities/bloc.dart';
 import 'package:fastkart_app/gen_bloc/cities/events.dart';
+import 'package:fastkart_app/gen_bloc/cities/states.dart';
+import 'package:fastkart_app/helper/app_theme.dart';
 import 'package:fastkart_app/helper/text_form.dart';
+import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/bloc.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/events.dart';
+import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/states.dart';
 import 'package:fastkart_app/screens/navigation_bar/view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screen_scaling/flutter_screen_scaling.dart';
 import 'package:kiwi/kiwi.dart';
 
@@ -16,8 +22,13 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final RegisterEventStart _event = RegisterEventStart();
+  final RegisterBloc _registerBloc = KiwiContainer().resolve();
 
   final bloc = KiwiContainer().resolve<CityBloc>()..add(CityEventStart());
+
+  String cityName = '';
+
+  bool addCity = false;
 
   @override
   void initState() {
@@ -44,21 +55,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
               fit: BoxFit.contain,
             ),
           ),
-          SingleChildScrollView(
-            child: Container(
-              margin: EdgeInsets.only(top: 80.h),
-              height: MediaQuery.of(context).size.height,
-              child: Form(
-                key: _event.formKey,
-                child: Container(
-                  padding: EdgeInsets.only(top: 20.h),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(25),
-                      topRight: Radius.circular(25),
-                    ),
+          Container(
+            margin: EdgeInsets.only(top: 80.h),
+            height: MediaQuery.of(context).size.height,
+            child: Form(
+              key: _event.formKey,
+              child: Container(
+                padding: EdgeInsets.only(top: 20.h),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25),
                   ),
+                ),
+                child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -148,21 +159,127 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      TxtField(
-                        controller: _event.city,
-                        validator: (val) {
-                          if (val!.isEmpty) {
-                            return '';
-                          } else {
-                            return null;
-                          }
+                      InkWell(
+                        onTap: () {
+                          showModalBottomSheet<void>(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return BlocBuilder(
+                                bloc: bloc,
+                                builder: (context, state) {
+                                  if (state is CityStatesStart) {
+                                    return const CircularProgressIndicator();
+                                  } else if (state is CityStateSuccess) {
+                                    return Padding(
+                                      padding: const EdgeInsets.only(top: 30, bottom: 30),
+                                      child: ListView.separated(
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.vertical,
+                                        physics: const BouncingScrollPhysics(),
+                                        itemBuilder: (context, index) {
+                                          return Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 15,
+                                              right: 15,
+                                              bottom: 15,
+                                            ),
+                                            child: InkWell(
+                                              onTap: () {
+                                                setState(() {
+                                                  print('🦊🦊🦊🦊🦊🦊🦊🦊 ${state.model.data!.cities[index].id}');
+                                                  addCity = true;
+                                                  if (addCity == true) {
+                                                    print(state.model.data!.cities[index].title);
+                                                    cityName = state.model.data!.cities[index].title;
+                                                    _event.city = state.model.data!.cities[index].id;
+                                                    print(state.model.data!.cities[index].id);
+                                                  } else {
+                                                    addCity = false;
+                                                  }
+                                                  Navigator.of(context).pop();
+                                                  // print(careData.name);
+                                                });
+                                              },
+                                              child: Container(
+                                                alignment: Alignment.center,
+                                                padding: const EdgeInsets.only(
+                                                  left: 15,
+                                                  right: 15,
+                                                  bottom: 15,
+                                                  top: 15,
+                                                ),
+                                                decoration: BoxDecoration(
+                                                  color: AppTheme.mainColor,
+                                                  borderRadius: BorderRadius.circular(10.0),
+                                                ),
+                                                child: Text(
+                                                  state.model.data!.cities[index].title,
+                                                  style: const TextStyle(
+                                                    fontSize: 13,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        separatorBuilder: (context, index) => const SizedBox(
+                                          width: 10,
+                                        ),
+                                        itemCount: state.model.data!.cities.length,
+                                      ),
+                                    );
+                                  } else if (state is CityStateFailed) {
+                                    return Center(
+                                      child: Text(state.msg),
+                                    );
+                                  } else {
+                                    return Center(
+                                      child: Container(
+                                        width: 30,
+                                        height: 30,
+                                        child: const CircularProgressIndicator(),
+                                      ),
+                                    );
+                                  }
+                                },
+                              );
+                            },
+                          );
                         },
-                        onSaved: (o) {},
-                        hintText: 'city',
-                        prefix: const Icon(Icons.perm_identity_rounded),
-                        enabled: true,
-                        obscureText: true,
-                        textInputType: TextInputType.text,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15, right: 15),
+                          child: Container(
+                            padding: const EdgeInsets.only(left: 15, right: 15),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                width: 0.5,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            width: double.infinity,
+                            alignment: Alignment.centerLeft,
+                            height: 50,
+                            child: cityName == ''
+                                ? const Text(
+                                    "LocaleKeys.Auth_City",
+                                    style: TextStyle(
+                                      color: Color(0xFFC1C1C1),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ).tr()
+                                : Text(
+                                    "${cityName}",
+                                    style: const TextStyle(
+                                      color: Color(0xFFC1C1C1),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ).tr(),
+                          ),
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
@@ -205,17 +322,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       SizedBox(
                         height: 18.h,
                       ),
-                      Btn(
-                        txt: 'Sign Up',
-                        onTap: () {
-                          bloc.add(CityEventStart());
-                          // Navigator.pushAndRemoveUntil(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => const NavigationBarView(),
-                          //   ),
-                          //   (Route<dynamic> route) => false,
-                          // );
+                      BlocConsumer(
+                        bloc: _registerBloc,
+                        listener: (context, state) {
+                          if (state is RegisterStateSuccess) {
+                            print("🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶 ${_event.lastName.toString()}");
+                            print("🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶 ${_event.city.toString()}");
+                          } else if (state is RegisterStateFailed) {
+                            print("🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑");
+                          }
+                        },
+                        builder: (context, state) {
+                          return Btn(
+                            txt: 'Sign Up',
+                            onTap: () {
+                              if (_event.formKey.currentState!.validate()) {
+                                _registerBloc.add(_event);
+                              }
+                              // bloc.add(CityEventStart());
+                              // Navigator.pushAndRemoveUntil(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => const NavigationBarView(),
+                              //   ),
+                              //   (Route<dynamic> route) => false,
+                              // );
+                            },
+                          );
                         },
                       ),
                       SizedBox(
