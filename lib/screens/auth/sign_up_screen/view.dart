@@ -1,13 +1,39 @@
+import 'package:fastkart_app/gen_bloc/cities/bloc.dart';
+import 'package:fastkart_app/gen_bloc/cities/events.dart';
 import 'package:fastkart_app/helper/text_form.dart';
+import 'package:fastkart_app/screens/navigation_bar/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screen_scaling/flutter_screen_scaling.dart';
+import 'package:kiwi/kiwi.dart';
 
 import '../../../helper/btns.dart';
 
-class SignUpScreen extends StatelessWidget {
-  TextEditingController fullNameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passController = TextEditingController();
+class SignUpScreen extends StatefulWidget {
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  final fullNameController = TextEditingController();
+
+  final emailController = TextEditingController();
+
+  final passController = TextEditingController();
+
+  // final CityEventStart _event = CityEventStart();
+
+  final bloc = KiwiContainer().resolve<CityBloc>()..add(CityEventStart());
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // bloc.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,30 +70,23 @@ class SignUpScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset('assets/icons/logo.png',width: 100.w,),
-                           SizedBox(
+                          Image.asset(
+                            'assets/icons/logo.png',
+                            width: 100.w,
+                          ),
+                          SizedBox(
                             height: 18.h,
                           ),
                           const Text(
                             "Online Supermarket for all your daily needs. you are just One Click away from your all needs at your door step.",
-                            style: TextStyle(
-                              color: Color(0xFF777777),
-                              fontSize: 11,
-                              fontWeight: FontWeight.w800,
-                              height: 1.5
-                            ),
+                            style: TextStyle(color: Color(0xFF777777), fontSize: 11, fontWeight: FontWeight.w800, height: 1.5),
                           ),
                           const SizedBox(
                             height: 20,
                           ),
                           const Text(
                             "Register Account",
-                            style: TextStyle(
-                                color: Color(0xFF222222),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w800,
-                                height: 1.5
-                            ),
+                            style: TextStyle(color: Color(0xFF222222), fontSize: 14, fontWeight: FontWeight.w800, height: 1.5),
                           ),
                         ],
                       ),
@@ -134,7 +153,15 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     Btn(
                       txt: 'Sign Up',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NavigationBarView(),
+                          ),
+                          (Route<dynamic> route) => false,
+                        );
+                      },
                     ),
                     SizedBox(
                       height: 18.h,

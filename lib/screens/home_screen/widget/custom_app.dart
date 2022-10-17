@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screen_scaling/flutter_screen_scaling.dart';
 
+import 'custom_recently.dart';
+
 Widget appCustom() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -22,7 +22,9 @@ class ServerGate {
       // "Accept-Language": LocaleKeys.Lang.tr(),
       // 'Authorization': CacheHelper.getFCMToken(),
       // "Accept-Language": CacheHelper.getLang(),
-      "Accept": "application/json"
+      "Accept": "application/json",
+      "content-type": "application/json",
+      "lang": "ar",
     };
   }
 
