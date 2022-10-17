@@ -7,7 +7,6 @@ import 'package:fastkart_app/helper/text_form.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/bloc.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/events.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/states.dart';
-import 'package:fastkart_app/screens/navigation_bar/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screen_scaling/flutter_screen_scaling.dart';
@@ -115,7 +114,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         hintText: 'Full Name',
                         prefix: const Icon(Icons.perm_identity_rounded),
                         enabled: true,
-                        obscureText: true,
+                        obscureText: false,
                         textInputType: TextInputType.text,
                       ),
                       const SizedBox(
@@ -134,7 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         hintText: 'lastName',
                         prefix: const Icon(Icons.perm_identity_rounded),
                         enabled: true,
-                        obscureText: true,
+                        obscureText: false,
                         textInputType: TextInputType.text,
                       ),
                       const SizedBox(
@@ -153,7 +152,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         hintText: 'phone',
                         prefix: const Icon(Icons.perm_identity_rounded),
                         enabled: true,
-                        obscureText: true,
+                        obscureText: false,
                         textInputType: TextInputType.text,
                       ),
                       const SizedBox(
@@ -337,16 +336,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             txt: 'Sign Up',
                             onTap: () {
                               if (_event.formKey.currentState!.validate()) {
-                                _registerBloc.add(_event);
+                                // _registerBloc.add(_event);
+                                print("🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓${_event.lastName.toString()}");
                               }
-                              // bloc.add(CityEventStart());
-                              // Navigator.pushAndRemoveUntil(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => const NavigationBarView(),
-                              //   ),
-                              //   (Route<dynamic> route) => false,
-                              // );
                             },
                           );
                         },
