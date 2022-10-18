@@ -1,5 +1,6 @@
 import 'package:fastkart_app/helper/server_gate.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/events.dart';
+import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/model.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +27,8 @@ class RegisterBloc extends Bloc<RegisterEvents, RegisterStates> {
       },
     );
     if (response.success) {
-      emit(RegisterStateSuccess());
+      RegisterModel model = RegisterModel.fromJson(response.response!.data);
+      emit(RegisterStateSuccess(model: model));
     } else {
       emit(
         RegisterStateFailed(

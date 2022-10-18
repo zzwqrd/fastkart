@@ -25,7 +25,7 @@ class ServerGate {
       // "Accept-Language": CacheHelper.getLang(),
       "Accept": "application/json",
       "content-type": "application/json",
-      // "lang": "ar",
+      "lang": "ar",
     };
   }
 

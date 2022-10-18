@@ -33,6 +33,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   flutter_gen: ^5.0.1
   flutter_swiper_null_safety: ^1.0.2
+  flash: ^2.0.5
 
 
 dev_dependencies:

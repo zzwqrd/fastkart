@@ -3,7 +3,10 @@ import 'package:fastkart_app/gen_bloc/cities/bloc.dart';
 import 'package:fastkart_app/gen_bloc/cities/events.dart';
 import 'package:fastkart_app/gen_bloc/cities/states.dart';
 import 'package:fastkart_app/helper/app_theme.dart';
+import 'package:fastkart_app/helper/flash_helper.dart';
 import 'package:fastkart_app/helper/text_form.dart';
+import 'package:fastkart_app/screens/auth/active_code/bloc/events.dart';
+import 'package:fastkart_app/screens/auth/active_code/view.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/bloc.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/events.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/states.dart';
@@ -325,9 +328,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         bloc: _registerBloc,
                         listener: (context, state) {
                           if (state is RegisterStateSuccess) {
+                            // ActiveCodeView
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ActiveCodeView(event: StartActiveCodeEvent(type: TYPE.register, mobile: _event.phone)),
+                              ),
+                              (Route<dynamic> route) => false,
+                            );
                             print("🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶 ${_event.lastName.toString()}");
                             print("🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶 ${_event.city.toString()}");
+                            FlashHelper.errorBar(message: state.model.message!);
                           } else if (state is RegisterStateFailed) {
+                            FlashHelper.errorBar(message: state.msg);
                             print("🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑");
                           }
                         },
@@ -336,8 +349,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             txt: 'Sign Up',
                             onTap: () {
                               if (_event.formKey.currentState!.validate()) {
-                                // _registerBloc.add(_event);
-                                print("🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓🌓${_event.lastName.toString()}");
+                                _registerBloc.add(_event);
                               }
                             },
                           );
