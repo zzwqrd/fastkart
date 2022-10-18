@@ -1,3 +1,4 @@
+import 'package:fastkart_app/screens/auth/login_screen/view.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/view.dart';
 import 'package:fastkart_app/screens/home_screen/view.dart';
 import 'package:flutter/material.dart';
@@ -14,20 +15,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     BoardingModel(
       image: 'assets/icons/logo.png',
       title: 'Get Safe Delivery At Your Door Step',
-      body:
-          'Online Supermarket for all your daily needs. you are just One Click away from your all needs at your door step.',
+      body: 'Online Supermarket for all your daily needs. you are just One Click away from your all needs at your door step.',
     ),
     BoardingModel(
       image: 'assets/icons/logo.png',
       title: 'Get Safe Delivery At Your Door Step',
-      body:
-          'Online Supermarket for all your daily needs. you are just One Click away from your all needs at your door step.',
+      body: 'Online Supermarket for all your daily needs. you are just One Click away from your all needs at your door step.',
     ),
     BoardingModel(
       image: 'assets/icons/logo.png',
       title: 'Get Safe Delivery At Your Door Step',
-      body:
-          'Online Supermarket for all your daily needs. you are just One Click away from your all needs at your door step.',
+      body: 'Online Supermarket for all your daily needs. you are just One Click away from your all needs at your door step.',
     ),
   ];
 
@@ -39,7 +37,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           children: [
             Expanded(
@@ -49,7 +47,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 width: double.infinity,
               ),
             ),
-             SizedBox(
+            SizedBox(
               height: 20.h,
             ),
             Expanded(
@@ -67,11 +65,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   }
                 },
                 itemCount: boarding.length,
-                itemBuilder: (context, index) =>
-                    buildBoardingItem(boarding[index]),
+                itemBuilder: (context, index) => buildBoardingItem(boarding[index]),
               ),
             ),
-             SizedBox(
+            SizedBox(
               height: 30.h,
             ),
             Expanded(
@@ -89,7 +86,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       spacing: 5,
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 18.h,
                   ),
                   InkWell(
@@ -99,17 +96,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         MaterialPageRoute(
                           builder: (context) => SignUpScreen(),
                         ),
-                            (Route<dynamic> route) => false,
+                        (Route<dynamic> route) => false,
                       );
                     },
                     child: Container(
                       height: 40,
                       width: 100,
-                      decoration: BoxDecoration(
-                          color: Color(0xFF43BDA7),
-                          borderRadius: BorderRadius.circular(5)),
+                      decoration: BoxDecoration(color: const Color(0xFF43BDA7), borderRadius: BorderRadius.circular(5)),
                       alignment: Alignment.center,
-                      child: Text(
+                      child: const Text(
                         "Sign Up",
                         style: TextStyle(
                           fontSize: 14,
@@ -121,22 +116,33 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        "Sign In",
-                        style: TextStyle(
-                          color: Color(0xFF0baf9a),
-                          fontSize: 13,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                            (Route<dynamic> route) => false,
+                          );
+                        },
+                        child: const Text(
+                          "Sign In",
+                          style: TextStyle(
+                            color: Color(0xFF0baf9a),
+                            fontSize: 13,
+                          ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 4,
                       ),
-                      Text(
+                      const Text(
                         "?Already have an Account",
                         style: TextStyle(
                           color: Color(0xFF777777),
@@ -151,7 +157,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ],
               ),
             ),
-
           ],
         ),
       ),
@@ -188,11 +193,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Text(
                 '${model.body}',
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.w900,
-                    color: Color(0xFF777777),
-                    height: 1.7),
+                style: const TextStyle(fontSize: 13.0, fontWeight: FontWeight.w900, color: Color(0xFF777777), height: 1.7),
               ),
             ],
           ),

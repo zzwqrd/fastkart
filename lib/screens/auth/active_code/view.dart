@@ -70,13 +70,6 @@ class _ActiveCodeViewState extends State<ActiveCodeView> {
                       bloc: _bloc,
                       listener: (context, state) {
                         if (state is DoneActiveCodeState) {
-                          // Navigator.pushAndRemoveUntil(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => const NavigationBarView(),
-                          //   ),
-                          //   (Route<dynamic> route) => false,
-                          // );
                           if (_event.type == TYPE.register) {
                             Navigator.pushAndRemoveUntil(
                               context,

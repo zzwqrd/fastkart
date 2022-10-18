@@ -64,6 +64,7 @@ Widget customRecently() {
                                   state.model.data.categories[index].image,
                                   // "https://themes.pixelstrap.com/fastkart-app/assets/images/product/7.png",
                                   width: 60,
+                                  fit: BoxFit.fill,
                                 ),
                               ),
                             );
