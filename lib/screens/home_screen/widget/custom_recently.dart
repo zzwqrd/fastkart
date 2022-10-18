@@ -20,7 +20,7 @@ Widget customRecently() {
             children: [
               Container(
                 width: double.infinity,
-                height: 172,
+                height: 150,
                 decoration: const BoxDecoration(
                   color: Color(0xFFedf8f8),
                   borderRadius: BorderRadius.only(
@@ -47,8 +47,7 @@ Widget customRecently() {
                         height: 20.h,
                       ),
                       Container(
-                        color: Colors.white,
-                        height: 100,
+                        height: 80,
                         child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
@@ -56,15 +55,22 @@ Widget customRecently() {
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: InkWell(
-                                onTap: () {
-                                  print('🐹🐹🐹🐹🐹🐹🐹🐹 ....... $index');
-                                },
-                                child: Image.network(
-                                  state.model.data.categories[index].image,
-                                  // "https://themes.pixelstrap.com/fastkart-app/assets/images/product/7.png",
-                                  width: 60,
-                                  fit: BoxFit.fill,
+                              child: Container(
+                                padding: const EdgeInsets.all(10.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: Colors.white,
+                                ),
+                                child: InkWell(
+                                  onTap: () {
+                                    print('🐹🐹🐹🐹🐹🐹🐹🐹 ....... $index');
+                                  },
+                                  child: Image.network(
+                                    state.model.data.categories[index].image,
+                                    // "https://themes.pixelstrap.com/fastkart-app/assets/images/product/7.png",
+                                    width: 60,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ),
                             );
