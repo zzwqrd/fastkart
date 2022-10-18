@@ -1,3 +1,4 @@
+import 'package:fastkart_app/helper/divider_line.dart';
 import 'package:fastkart_app/main.dart';
 import 'package:fastkart_app/screens/home_screen/bloc/bloc.dart';
 import 'package:fastkart_app/screens/home_screen/bloc/events.dart';
@@ -59,8 +60,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             customRecently(),
             SizedBox(
-              height: 20.h,
+              height: 10.h,
             ),
+            dividerLine(),
           ],
         ),
       ),
