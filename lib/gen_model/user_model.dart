@@ -43,7 +43,7 @@ class Data {
     required this.fcmToken,
     required this.status,
     required this.isVerified,
-    required this.createdAt,
+    // required this.createdAt,
     required this.token,
   });
 
@@ -55,8 +55,8 @@ class Data {
   dynamic image;
   String fcmToken;
   String status;
-  String isVerified;
-  DateTime createdAt;
+  dynamic isVerified;
+  // DateTime createdAt;
   String token;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
@@ -69,7 +69,7 @@ class Data {
         fcmToken: json["fcm_token"] ?? '',
         status: json["status"] ?? '',
         isVerified: json["is_verified"] ?? '',
-        createdAt: DateTime.parse(json["created_at"] ?? {}),
+        // createdAt: DateTime.parse(json["created_at"] ?? {}),
         token: json["token"] ?? '',
       );
 
@@ -83,7 +83,7 @@ class Data {
         "fcm_token": fcmToken,
         "status": status,
         "is_verified": isVerified,
-        "created_at": createdAt.toIso8601String(),
+        // "created_at": createdAt.toIso8601String(),
         "token": token,
       };
 }

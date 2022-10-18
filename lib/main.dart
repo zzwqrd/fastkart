@@ -15,12 +15,9 @@ void main() async {
   Prefs = await SharedPreferences.getInstance();
 
   initKiwi();
-  // await ScreenUtil.ensureScreenSize();
+
   await EasyLocalization.ensureInitialized();
-  debugPrint('firstName -=-=-=--=- ' + Prefs.getString('firstName').toString());
-  debugPrint('token -=-=-=--=- ' + Prefs.getString('token').toString());
-  // debugPrint('CacheHelper -=-=-=--=- ' + CacheHelper.getPhone());
-  // CacheHelper.setFullName(model.data.firstName);
+
   runApp(
     EasyLocalization(
       path: 'assets/lang',

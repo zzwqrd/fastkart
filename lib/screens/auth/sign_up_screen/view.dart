@@ -7,6 +7,7 @@ import 'package:fastkart_app/helper/flash_helper.dart';
 import 'package:fastkart_app/helper/text_form.dart';
 import 'package:fastkart_app/screens/auth/active_code/bloc/events.dart';
 import 'package:fastkart_app/screens/auth/active_code/view.dart';
+import 'package:fastkart_app/screens/auth/login_screen/view.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/bloc.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/events.dart';
 import 'package:fastkart_app/screens/auth/sign_up_screen/bloc/states.dart';
@@ -368,12 +369,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            "Sign In 3333",
-                            style: TextStyle(
-                              color: Color(0xFF0baf9a),
-                              fontSize: 13,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              // LoginScreen
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginScreen(),
+                                ),
+                                (Route<dynamic> route) => false,
+                              );
+                            },
+                            child: Text(
+                              "Sign In",
+                              style: TextStyle(
+                                color: Color(0xFF0baf9a),
+                                fontSize: 13,
+                              ),
                             ),
                           ),
                           SizedBox(
