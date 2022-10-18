@@ -14,32 +14,31 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  bool flag = false;
   void goToPage() {
-    if (Prefs.getString('token') != null || Prefs.getString('token') != '') {
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const NavigationBarView(),
-        ),
-        (Route<dynamic> route) => false,
-      );
-    } else {
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (context) => OnboardingScreen(),
-        ),
-        (Route<dynamic> route) => false,
-      );
-    }
-    // Navigator.pushAndRemoveUntil(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (context) => OnboardingScreen(),
-    //   ),
-    //   (Route<dynamic> route) => false,
-    // );
+    // if (Prefs.getString('token') != null || Prefs.getString('token') != '') {
+    //   Navigator.pushAndRemoveUntil(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) => const NavigationBarView(),
+    //     ),
+    //     (Route<dynamic> route) => false,
+    //   );
+    // } else {
+    //   Navigator.pushAndRemoveUntil(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) => OnboardingScreen(),
+    //     ),
+    //     (Route<dynamic> route) => false,
+    //   );
+    // }
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => OnboardingScreen(),
+      ),
+      (Route<dynamic> route) => false,
+    );
   }
 
   @override

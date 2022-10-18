@@ -36,7 +36,7 @@ class _ActiveCodeViewState extends State<ActiveCodeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [

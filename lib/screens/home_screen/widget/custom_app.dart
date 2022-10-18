@@ -1,3 +1,4 @@
+import 'package:fastkart_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screen_scaling/flutter_screen_scaling.dart';
 
@@ -19,10 +20,13 @@ Widget appCustom() {
 
           Row(
             children: [
-              Icon(
-                Icons.location_on_sharp,
-                color: Colors.black,
-                size: 16.px,
+              InkWell(
+                onTap: () {},
+                child: Icon(
+                  Icons.location_on_sharp,
+                  color: Colors.black,
+                  size: 16.px,
+                ),
               ),
               SizedBox(
                 width: 5.w,

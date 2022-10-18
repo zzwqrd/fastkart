@@ -348,6 +348,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           return Btn(
                             txt: 'Sign Up',
                             onTap: () {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ActiveCodeView(event: StartActiveCodeEvent(type: TYPE.register, mobile: _event.phone)),
+                                ),
+                                (Route<dynamic> route) => true,
+                              );
                               if (_event.formKey.currentState!.validate()) {
                                 _registerBloc.add(_event);
                               }
