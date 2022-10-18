@@ -1,41 +1,76 @@
-class UserModel {
-  UserModel(
-      {required this.id,
-      required this.firstName,
-      required this.lastName,
-      required this.phone,
-      required this.cityId,
-      required this.image,
-      required this.fcmToken,
-      required this.status,
-      required this.isVerified,
-      required this.createdAt,
-      required this.token});
+// To parse this JSON data, do
+//
+//     final userModel = userModelFromJson(jsonString);
 
-  int? id;
-  String? firstName;
-  String? lastName;
-  String? phone;
-  int? cityId;
-  Null? image;
-  Null? fcmToken;
-  String? status;
-  String? isVerified;
-  String? createdAt;
-  String? token;
+import 'dart:convert';
+
+UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
+
+String userModelToJson(UserModel data) => json.encode(data.toJson());
+
+class UserModel {
+  UserModel({
+    required this.data,
+    required this.message,
+    required this.status,
+  });
+
+  Data data;
+  String message;
+  String status;
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+        data: Data.fromJson(json["data"]),
+        message: json["message"],
+        status: json["status"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "data": data.toJson(),
+        "message": message,
+        "status": status,
+      };
+}
+
+class Data {
+  Data({
+    required this.id,
+    required this.firstName,
+    required this.lastName,
+    required this.phone,
+    required this.cityId,
+    required this.image,
+    required this.fcmToken,
+    required this.status,
+    required this.isVerified,
+    required this.createdAt,
+    required this.token,
+  });
+
+  int id;
+  String firstName;
+  String lastName;
+  String phone;
+  int cityId;
+  dynamic image;
+  String fcmToken;
+  String status;
+  String isVerified;
+  DateTime createdAt;
+  String token;
+
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
         id: json["id"] ?? 0,
-        firstName: json["first_name"] ?? "",
-        lastName: json["last_name"] ?? "",
-        phone: json["phone"] ?? "",
+        firstName: json["first_name"] ?? '',
+        lastName: json["last_name"] ?? '',
+        phone: json["phone"] ?? '',
         cityId: json["city_id"] ?? 0,
         image: json["image"] ?? "",
-        fcmToken: json["fcm_token"] ?? "ar",
-        status: json["status"] ?? 0,
-        isVerified: json["is_verified"] ?? 0,
-        createdAt: json["created_at"] ?? 0,
-        token: json["token"] ?? 0,
+        fcmToken: json["fcm_token"] ?? '',
+        status: json["status"] ?? '',
+        isVerified: json["is_verified"] ?? '',
+        createdAt: DateTime.parse(json["created_at"] ?? {}),
+        token: json["token"] ?? '',
       );
 
   Map<String, dynamic> toJson() => {
@@ -48,7 +83,7 @@ class UserModel {
         "fcm_token": fcmToken,
         "status": status,
         "is_verified": isVerified,
-        "created_at": createdAt,
+        "created_at": createdAt.toIso8601String(),
         "token": token,
       };
 }

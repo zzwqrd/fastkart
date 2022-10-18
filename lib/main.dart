@@ -1,16 +1,26 @@
 import 'package:easy_localization/easy_localization.dart';
+
 import 'package:fastkart_app/helper/un_foucs.dart';
 import 'package:fastkart_app/kiwi.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'screens/splash_screen/view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  Prefs = await SharedPreferences.getInstance();
+
   initKiwi();
   // await ScreenUtil.ensureScreenSize();
   await EasyLocalization.ensureInitialized();
+  debugPrint('firstName -=-=-=--=- ' + Prefs.getString('firstName').toString());
+  debugPrint('token -=-=-=--=- ' + Prefs.getString('token').toString());
+  // debugPrint('CacheHelper -=-=-=--=- ' + CacheHelper.getPhone());
+  // CacheHelper.setFullName(model.data.firstName);
   runApp(
     EasyLocalization(
       path: 'assets/lang',
@@ -72,3 +82,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+late SharedPreferences Prefs;

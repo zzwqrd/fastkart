@@ -1,3 +1,5 @@
+import 'package:fastkart_app/gen_model/user_model.dart';
+
 class ActiveCodeState {}
 
 class LoadingActiveCodeState extends ActiveCodeState {}
@@ -9,6 +11,6 @@ class FaildActiveCodeState extends ActiveCodeState {
 }
 
 class DoneActiveCodeState extends ActiveCodeState {
-  String msg;
-  DoneActiveCodeState({required this.msg});
+  UserModel model;
+  DoneActiveCodeState({required this.model});
 }

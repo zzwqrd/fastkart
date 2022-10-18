@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:animate_do/animate_do.dart';
+import 'package:fastkart_app/helper/extintions.dart';
+import 'package:fastkart_app/main.dart';
 import 'package:fastkart_app/screens/auth/onboarding_screen/onboarding.dart';
 import 'package:fastkart_app/screens/navigation_bar/view.dart';
 import 'package:flutter/material.dart';
@@ -12,14 +14,32 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  bool flag = false;
   void goToPage() {
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(
-        builder: (context) => OnboardingScreen(),
-      ),
-      (Route<dynamic> route) => false,
-    );
+    if (Prefs.getString('token') != null || Prefs.getString('token') != '') {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const NavigationBarView(),
+        ),
+        (Route<dynamic> route) => false,
+      );
+    } else {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => OnboardingScreen(),
+        ),
+        (Route<dynamic> route) => false,
+      );
+    }
+    // Navigator.pushAndRemoveUntil(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (context) => OnboardingScreen(),
+    //   ),
+    //   (Route<dynamic> route) => false,
+    // );
   }
 
   @override
@@ -30,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
         goToPage();
       },
     );
-    // TODO: implement initState
+
     super.initState();
   }
 

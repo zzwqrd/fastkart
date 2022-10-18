@@ -2,6 +2,7 @@ import 'package:fastkart_app/helper/btns.dart';
 import 'package:fastkart_app/helper/custom_pin_code.dart';
 import 'package:fastkart_app/helper/extintions.dart';
 import 'package:fastkart_app/helper/flash_helper.dart';
+import 'package:fastkart_app/main.dart';
 import 'package:fastkart_app/screens/auth/active_code/bloc/bloc.dart';
 import 'package:fastkart_app/screens/auth/active_code/bloc/events.dart';
 import 'package:fastkart_app/screens/auth/active_code/bloc/states.dart';
@@ -27,7 +28,7 @@ class _ActiveCodeViewState extends State<ActiveCodeView> {
   @override
   void initState() {
     _event = widget.event;
-    print('🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚 ${widget.event.toString()}');
+    print('🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚 ${widget.event.type.toString()}');
 
     super.initState();
   }
@@ -47,15 +48,24 @@ class _ActiveCodeViewState extends State<ActiveCodeView> {
               bloc: _bloc,
               listener: (context, state) {
                 if (state is DoneActiveCodeState) {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const NavigationBarView(),
-                    ),
-                    (Route<dynamic> route) => false,
-                  );
+                  // Navigator.pushAndRemoveUntil(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => const NavigationBarView(),
+                  //   ),
+                  //   (Route<dynamic> route) => false,
+                  // );
+                  if (_event.type == TYPE.register) {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NavigationBarView(),
+                      ),
+                      (Route<dynamic> route) => false,
+                    );
+                  }
 
-                  FlashHelper.successBar(message: state.msg);
+                  FlashHelper.successBar(message: state.model.message);
                 } else if (state is FaildActiveCodeState) {
                   FlashHelper.errorBar(message: state.msg);
                   print("🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑🌑");
@@ -66,6 +76,7 @@ class _ActiveCodeViewState extends State<ActiveCodeView> {
                   txt: 'Sign Up',
                   onTap: () {
                     _bloc.add(_event);
+                    print('<<<<<<<<<<<<<<<<<<<<<<<___________________________ ${Prefs.getString("data")}');
                   },
                 );
               },
