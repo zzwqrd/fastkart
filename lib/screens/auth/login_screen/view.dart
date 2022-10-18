@@ -1,5 +1,6 @@
 import 'package:fastkart_app/helper/btns.dart';
 import 'package:fastkart_app/helper/flash_helper.dart';
+import 'package:fastkart_app/helper/rout.dart';
 import 'package:fastkart_app/helper/text_form.dart';
 import 'package:fastkart_app/screens/auth/login_screen/bloc/bloc.dart';
 import 'package:fastkart_app/screens/auth/login_screen/bloc/events.dart';
@@ -9,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screen_scaling/flutter_screen_scaling.dart';
 import 'package:kiwi/kiwi.dart';
+
+import '../sign_up_screen/view.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -159,18 +162,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            "Sign In 3333",
-                            style: TextStyle(
-                              color: Color(0xFF0baf9a),
-                              fontSize: 13,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen()));
+                            },
+                            child: const Text(
+                              "Sign Up",
+                              style: TextStyle(
+                                color: Color(0xFF0baf9a),
+                                fontSize: 13,
+                              ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 4,
                           ),
-                          Text(
+                          const Text(
                             "?Already have an Account",
                             style: TextStyle(
                               color: Color(0xFF777777),
@@ -185,7 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Expanded(
                               child: Divider(
-                                color: Color(0xFFe8e8e8),
+                                color: const Color(0xFFe8e8e8),
                                 height: 60.h,
                               ),
                             ),
@@ -199,7 +207,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             Expanded(
                               child: Divider(
-                                color: Color(0xFFe8e8e8),
+                                color: const Color(0xFFe8e8e8),
                                 height: 60.h,
                               ),
                             ),

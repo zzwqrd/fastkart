@@ -19,7 +19,6 @@ class _SplashScreenState extends State<SplashScreen> {
   void goToPage() async {
     if (Prefs.getString('token') != null) {
       print("__________________________________________________ token");
-      print("__________________________________________________ token ${Prefs.getString('token').toString()}");
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
@@ -28,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
         (Route<dynamic> route) => false,
       );
       //is_verified
-    } else if (Prefs.getInt('isVerified') == 1 && Prefs.getString('token') == null) {
+    } else if (Prefs.getString('isVerified') != 0 && Prefs.getString('token') == null) {
       print("__________________________________________________ NO isVerified");
       Navigator.pushAndRemoveUntil(
         context,

@@ -32,7 +32,7 @@ Widget appCustom() {
                 width: 5.w,
               ),
               Text(
-                "Los Angeles",
+                Prefs.getString('firstName').toString() + Prefs.getString('lastName').toString(),
                 style: TextStyle(color: Colors.black, fontSize: 12.px),
               ),
             ],

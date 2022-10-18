@@ -35,7 +35,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates> {
       Prefs.setString('image', model.data.image);
       Prefs.setString('fcmToken', model.data.fcmToken);
       Prefs.setString('status', model.data.status);
-      Prefs.setInt('isVerified', model.data.isVerified);
+      // Prefs.setInt('isVerified', model.data.isVerified);
       Prefs.setString('token', model.data.token);
       emit(LoginStateSuccess(model: model));
     } else {
