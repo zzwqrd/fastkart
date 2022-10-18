@@ -1,11 +1,16 @@
 import 'package:fastkart_app/main.dart';
+import 'package:fastkart_app/screens/home_screen/bloc/bloc.dart';
+import 'package:fastkart_app/screens/home_screen/bloc/events.dart';
+import 'package:fastkart_app/screens/home_screen/bloc/states.dart';
 import 'package:fastkart_app/screens/home_screen/widget/customSlider.dart';
 import 'package:fastkart_app/screens/home_screen/widget/custom_app.dart';
 import 'package:fastkart_app/screens/home_screen/widget/custom_recently.dart';
 import 'package:fastkart_app/screens/home_screen/widget/custom_search.dart';
 import 'package:fastkart_app/screens/splash_screen/view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screen_scaling/flutter_screen_scaling.dart';
+import 'package:kiwi/kiwi.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -52,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 20.h,
             ),
-            custom_recently(),
+            customRecently(),
             SizedBox(
               height: 20.h,
             ),

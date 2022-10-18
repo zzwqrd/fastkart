@@ -32,7 +32,7 @@ Widget appCustom() {
                 width: 5.w,
               ),
               Text(
-                Prefs.getString('firstName').toString() + Prefs.getString('lastName').toString(),
+                Prefs.getString('firstName').toString() + ' ' + Prefs.getString('lastName').toString(),
                 style: TextStyle(color: Colors.black, fontSize: 12.px),
               ),
             ],

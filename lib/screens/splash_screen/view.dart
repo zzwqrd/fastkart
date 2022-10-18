@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
         (Route<dynamic> route) => false,
       );
       //is_verified
-    } else if (Prefs.getString('isVerified') != 0 && Prefs.getString('token') == null) {
+    } else if (Prefs.getString('isVerified') != '0' && Prefs.getString('token') == null) {
       print("__________________________________________________ NO isVerified");
       Navigator.pushAndRemoveUntil(
         context,
