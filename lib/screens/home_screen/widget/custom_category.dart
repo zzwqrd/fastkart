@@ -36,17 +36,23 @@ Widget customCategory() {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        height: 70,
-                        padding: const EdgeInsets.all(5),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Color((Random().nextDouble() * 0xfff7ce).toInt()).withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Image.network(
-                          state.model.data.categories[index].image,
-                          fit: BoxFit.fill,
+                      InkWell(
+                        onTap: () {
+                          print(
+                              "_____________________________________ ${state.model.data.categories[index].id} + ${state.model.data.categories[index].title}");
+                        },
+                        child: Container(
+                          height: 70,
+                          padding: const EdgeInsets.all(5),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Color((Random().nextDouble() * 0xfff7ce).toInt()).withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Image.network(
+                            state.model.data.categories[index].image,
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                       SizedBox(
