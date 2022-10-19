@@ -51,7 +51,7 @@ Widget customRecently() {
                         child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          itemCount: state.model.data.categories.length,
+                          itemCount: state.model.data.brand.length,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -66,8 +66,7 @@ Widget customRecently() {
                                     print('🐹🐹🐹🐹🐹🐹🐹🐹 ....... $index');
                                   },
                                   child: Image.network(
-                                    state.model.data.categories[index].image,
-                                    // "https://themes.pixelstrap.com/fastkart-app/assets/images/product/7.png",
+                                    state.model.data.brand[index].image,
                                     width: 60,
                                     fit: BoxFit.fill,
                                   ),

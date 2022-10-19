@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fastkart_app/helper/divider_line.dart';
 import 'package:fastkart_app/main.dart';
 import 'package:fastkart_app/screens/home_screen/bloc/bloc.dart';
@@ -5,6 +7,7 @@ import 'package:fastkart_app/screens/home_screen/bloc/events.dart';
 import 'package:fastkart_app/screens/home_screen/bloc/states.dart';
 import 'package:fastkart_app/screens/home_screen/widget/customSlider.dart';
 import 'package:fastkart_app/screens/home_screen/widget/custom_app.dart';
+import 'package:fastkart_app/screens/home_screen/widget/custom_category.dart';
 import 'package:fastkart_app/screens/home_screen/widget/custom_recently.dart';
 import 'package:fastkart_app/screens/home_screen/widget/custom_search.dart';
 import 'package:fastkart_app/screens/splash_screen/view.dart';
@@ -21,6 +24,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final HomeBloc _bloc = KiwiContainer().resolve()..add(HomeEventStart());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +67,10 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 10.h,
             ),
             dividerLine(),
+            SizedBox(
+              height: 10.h,
+            ),
+            customCategory(),
           ],
         ),
       ),

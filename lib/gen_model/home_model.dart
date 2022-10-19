@@ -18,14 +18,17 @@ class Data {
   Data({
     required this.ads,
     required this.categories,
+    required this.brand,
   });
 
   List<Ad> ads;
-  List<Category> categories;
+  List<Brand> categories;
+  List<Brand> brand;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
         ads: List<Ad>.from(json["ads"].map((x) => Ad.fromJson(x))),
-        categories: List<Category>.from(json["categories"].map((x) => Category.fromJson(x))),
+        categories: List<Brand>.from(json["categories"].map((x) => Brand.fromJson(x))),
+        brand: List<Brand>.from(json["brand"].map((x) => Brand.fromJson(x))),
       );
 }
 
@@ -44,8 +47,8 @@ class Ad {
       );
 }
 
-class Category {
-  Category({
+class Brand {
+  Brand({
     required this.id,
     required this.title,
     required this.image,
@@ -55,7 +58,7 @@ class Category {
   String title;
   String image;
 
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
+  factory Brand.fromJson(Map<String, dynamic> json) => Brand(
         id: json["id"],
         title: json["title"],
         image: json["image"],

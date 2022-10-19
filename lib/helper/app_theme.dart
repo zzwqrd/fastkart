@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 // الفيل دا هيكون فيه الالوان وكل حاجه خاصه بلتطبيق
 class AppTheme {
   AppTheme._();
@@ -18,6 +19,12 @@ class AppTheme {
   static TextStyle appStayle = const TextStyle(
     fontSize: 14,
     color: Color(0xFF7B8E7A),
+    // fontFamily: fontName,
+  );
+  static TextStyle categoryStayle = const TextStyle(
+    fontSize: 12,
+    color: Color(0xFF222222),
+    fontWeight: FontWeight.w900,
     // fontFamily: fontName,
   );
   static TextStyle butnStyle2 = TextStyle(

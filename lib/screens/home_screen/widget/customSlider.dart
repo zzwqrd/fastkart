@@ -32,55 +32,55 @@ Widget customSlider() {
                       height: MediaQuery.of(context).size.height.h,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(18.px, 0, 0, 0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "Farm Fresh Veggies",
-                          style: TextStyle(
-                            color: Color(0xFF222222),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        const Text(
-                          "Get instant delivery",
-                          style: TextStyle(
-                            color: Color(0xFF777777),
-                            fontSize: 12,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 35,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: AppTheme.mainColor,
-                            ),
-                            child: const Text(
-                              "Shop Now",
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: EdgeInsetsDirectional.fromSTEB(18.px, 0, 0, 0),
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: [
+                  //       const Text(
+                  //         "Farm Fresh Veggies",
+                  //         style: TextStyle(
+                  //           color: Color(0xFF222222),
+                  //           fontSize: 14,
+                  //           fontWeight: FontWeight.w700,
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         height: 10.h,
+                  //       ),
+                  //       const Text(
+                  //         "Get instant delivery",
+                  //         style: TextStyle(
+                  //           color: Color(0xFF777777),
+                  //           fontSize: 12,
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         height: 10.h,
+                  //       ),
+                  //       InkWell(
+                  //         onTap: () {},
+                  //         child: Container(
+                  //           alignment: Alignment.center,
+                  //           height: 35,
+                  //           width: 100,
+                  //           decoration: BoxDecoration(
+                  //             borderRadius: BorderRadius.circular(5),
+                  //             color: AppTheme.mainColor,
+                  //           ),
+                  //           child: const Text(
+                  //             "Shop Now",
+                  //             style: TextStyle(
+                  //               fontSize: 12,
+                  //               color: Colors.white,
+                  //             ),
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               );
             },
