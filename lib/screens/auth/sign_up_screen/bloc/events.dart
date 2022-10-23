@@ -4,9 +4,10 @@ class RegisterEvents {}
 
 class RegisterEventStart extends RegisterEvents {
   late TextEditingController phone, firstName, lastName, password, confirmPassword;
-  dynamic city;
 
+  dynamic city;
   late GlobalKey<FormState> formKey;
+
   Map<String, dynamic> toJson() => {
         "phone": phone.text,
         "city": city.text,

@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             dividerLine(),
             SizedBox(
-              height: 10.h,
+              height: 5.h,
             ),
             customCategory(),
           ],

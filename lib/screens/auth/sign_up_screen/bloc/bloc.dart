@@ -26,6 +26,7 @@ class RegisterBloc extends Bloc<RegisterEvents, RegisterStates> {
         "password_confirmation": event.confirmPassword.text,
       },
     );
+
     if (response.success) {
       RegisterModel model = RegisterModel.fromJson(response.response!.data);
       emit(RegisterStateSuccess(model: model));

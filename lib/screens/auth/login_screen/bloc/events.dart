@@ -14,7 +14,6 @@ class LoginEventStart extends LoginEvents {
   LoginEventStart() {
     formKey = GlobalKey();
     phone = TextEditingController();
-
     password = TextEditingController();
   }
 }

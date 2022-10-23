@@ -1,6 +1,4 @@
 import 'dart:math';
-import 'dart:ui';
-
 import 'package:fastkart_app/helper/app_theme.dart';
 import 'package:fastkart_app/screens/home_screen/bloc/bloc.dart';
 import 'package:fastkart_app/screens/home_screen/bloc/states.dart';
@@ -42,7 +40,7 @@ Widget customCategory() {
                               "_____________________________________ ${state.model.data.categories[index].id} + ${state.model.data.categories[index].title}");
                         },
                         child: Container(
-                          height: 70,
+                          height: 55,
                           padding: const EdgeInsets.all(5),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
